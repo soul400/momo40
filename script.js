@@ -4,6 +4,9 @@ const config = {
     totalPlayers: 4   // يمكن تغييرها إلى 2 إذا كنت تريد مشتركين فقط
 };
 
+// متغير لتخزين الرقم الحالي المختار
+let currentNumber = null;
+
 // تحميل الأرقام الديناميكية
 const numbersGrid = document.getElementById('numbers-grid');
 for (let i = 1; i <= config.totalNumbers; i++) {
@@ -11,7 +14,9 @@ for (let i = 1; i <= config.totalNumbers; i++) {
     numberDiv.textContent = i;
     numberDiv.addEventListener('click', () => {
         if (!numberDiv.classList.contains('disabled')) {
-            showQuestion(i);
+            currentNumber = i; // تحديث الرقم الحالي
+            resetImages(); // مسح الصور القديمة
+            showQuestion(currentNumber); // عرض السؤال الخاص بالرقم الحالي
         }
     });
     numbersGrid.appendChild(numberDiv);
@@ -29,11 +34,19 @@ for (let i = 0; i < config.totalPlayers; i++) {
     playersBoard.appendChild(playerDiv);
 }
 
+// دالة لإعادة تعيين الصور
+function resetImages() {
+    const questionImage = document.getElementById('question-image');
+    const answerImage = document.getElementById('answer-image');
+    questionImage.src = ''; // مسح صورة السؤال
+    answerImage.src = '';   // مسح صورة الإجابة
+}
+
 // عرض نافذة السؤال
 function showQuestion(number) {
     const questionModal = document.getElementById('question-modal');
     const questionImage = document.getElementById('question-image');
-    questionImage.src = `questions/${number}.png`;
+    questionImage.src = `questions/${number}.png`; // تحميل صورة السؤال الخاصة بالرقم الحالي
     questionImage.style.maxWidth = '100%'; // ضبط حجم الصورة
     questionImage.style.height = 'auto';
     questionModal.style.display = 'flex';
@@ -63,8 +76,7 @@ function showAnswer() {
     const questionModal = document.getElementById('question-modal');
     const answerModal = document.getElementById('answer-modal');
     const answerImage = document.getElementById('answer-image');
-    const currentNumber = parseInt(document.querySelector('#numbers-grid .selected').textContent);
-    answerImage.src = `answers/${currentNumber}.png`;
+    answerImage.src = `answers/${currentNumber}.png`; // تحميل صورة الإجابة الخاصة بالرقم الحالي
     answerImage.style.maxWidth = '100%'; // ضبط حجم الصورة
     answerImage.style.height = 'auto';
 
