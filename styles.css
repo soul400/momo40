@@ -1,0 +1,139 @@
+/* التنسيق العام */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#competition-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: gold; /* تغيير لون العنوان إلى ذهبي */
+}
+
+/* لوحة الأرقام */
+#numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#numbers-grid div {
+    background-color: #f5f5f5;
+    border: 2px solid gold;
+    padding: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: black; /* تغيير لون الخط إلى أسود */
+}
+
+#numbers-grid div:hover {
+    background-color: #e0e0e0;
+}
+
+/* تنسيق الأرقام المحجوزة */
+#numbers-grid div.disabled {
+    background-color: black !important;
+    color: white !important;
+    cursor: not-allowed !important;
+}
+
+/* لوحة المشتركين */
+#players-board {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player {
+    background-color: #f5f5f5;
+    border: 2px solid gold;
+    padding: 10px;
+    border-radius: 5px;
+    color: black; /* تغيير لون الخط إلى أسود */
+    width: 150px; /* تعديل عرض المربعات */
+}
+
+.player-name {
+    width: calc(100% - 60px); /* تحديد عرض مربع الاسم */
+    margin-right: 10px;
+}
+
+.score {
+    width: 50px;
+    margin-top: 5px;
+    text-align: center;
+    color: black; /* تغيير لون الخط إلى أسود */
+}
+
+/* النوافذ المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timer-circle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: gold;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+/* زر إظهار الإجابة */
+#show-answer-btn, #correct-answer-btn, #wrong-answer-btn, #back-to-main-btn {
+    background-color: gold;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#show-answer-btn:hover, #correct-answer-btn:hover, #wrong-answer-btn:hover, #back-to-main-btn:hover {
+    background-color: #d4af37;
+}

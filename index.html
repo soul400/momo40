@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسابقة رسلان والمهرة الرمضانية</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- العنوان -->
+        <h1 id="competition-title">مسابقة رسلان والمهرة الرمضانية</h1>
+
+        <!-- لوحة الأرقام -->
+        <div id="numbers-grid"></div>
+
+        <!-- لوحة المشتركين والنقاط -->
+        <div id="players-board"></div>
+    </div>
+
+    <!-- نافذة السؤال -->
+    <div id="question-modal" class="modal">
+        <div class="modal-content">
+            <div id="timer-circle">15</div>
+            <img id="question-image" src="" alt="السؤال">
+            <button id="show-answer-btn">إظهار الإجابة</button>
+        </div>
+    </div>
+
+    <!-- نافذة الجواب -->
+    <div id="answer-modal" class="modal">
+        <div class="modal-content">
+            <img id="answer-image" src="" alt="الإجابة">
+            <div class="answer-buttons">
+                <button id="correct-answer-btn">جواب صحيح</button>
+                <button id="wrong-answer-btn">جواب خطأ</button>
+            </div>
+            <button id="back-to-main-btn">العودة إلى اللائحة الرئيسية</button>
+        </div>
+    </div>
+
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="wrong-sound" src="wrong.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
